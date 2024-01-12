@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import json
+import os
 import re
 import time
 from urllib.parse import unquote
@@ -135,7 +136,10 @@ def main(number, appoint_url='', log_info='', req_web='', language='zh_cn', file
                                                                                                         real_url)
                     break
             else:
-                filename_list = re.split(r'[\.,，]', file_path)
+                file_real_path = ''
+                if os.path.isabs(file_path):
+                    file_real_path = os.path.splitext(os.path.split(file_path)[1])[0].upper()
+                filename_list = re.split(r'[\.,，]', file_real_path)
                 for each in filename_list:
                     if len(each) < 5 or '传媒' in each or '麻豆' in each:
                         continue
@@ -297,3 +301,4 @@ if __name__ == '__main__':
     # print(main('女王的SM调教'))
     # print(main('91CM202'))
     # print(main('91CM-202'))
+    print(main('DX04', file_path='P:\\10国产合集\\02原创归档\DX\\DX04.TS'))
