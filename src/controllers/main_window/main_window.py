@@ -543,8 +543,8 @@ class MyMAinWindow(QMainWindow):
         if feedback or download_link:
             self.main_logs_show.emit(f'{feedback}{download_link}')
         signal.show_log_text('================================================================================')
-        self.pushButton_check_javdb_cookie_clicked()  # 检测javdb cookie
-        self.pushButton_check_javbus_cookie_clicked()  # 检测javbus cookie
+        # self.pushButton_check_javdb_cookie_clicked()  # 检测javdb cookie
+        # self.pushButton_check_javbus_cookie_clicked()  # 检测javbus cookie
         if config.use_database:
             ActressDB.init_db()
         try:
