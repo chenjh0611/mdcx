@@ -138,7 +138,7 @@ class GeneratedConfig:
     nfo_tag_publisher = r'发行: publisher'
 
     # Name_Rule
-    folder_name = r'actor/number actor'
+    folder_name = r'number title-actor'
     naming_file = r'number'
     naming_media = r'number title'
     prevent_char = r''
@@ -176,7 +176,7 @@ class GeneratedConfig:
     # emby
     server_type = r'emby'
     emby_url = r'http://192.168.2.124:8098'
-    api_key = r'ee9a2f2419704257b1dd60b975f2d64e'
+    api_key = r'6bc313e6f43447d38aa0ff6d3c9454db'
     user_id = r''
     emby_on = r'actor_info_zh_cn,actor_info_miss,actor_photo_net,actor_photo_miss,'
     use_database = 0
@@ -198,8 +198,8 @@ class GeneratedConfig:
     mark_pos_hd = r'bottom_right'
 
     # proxy
-    type = r'no'
-    proxy = r'127.0.0.1:7890'
+    type = r'http'
+    proxy = r'127.0.0.1:10809'
     timeout = 10
     retry = 3
     theporndb_api_token = r''
