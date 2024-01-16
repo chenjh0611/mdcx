@@ -60,8 +60,11 @@ def get_real_url(html, number_list):
             for n in number_list:
                 temp_n = re.sub(r'[\W_]', '', n).upper()
                 temp_title = re.sub(r'[\W_]', '', title).upper()
-                if temp_n in temp_title:
+                # 改成判断下这个番号在不在这个URL里
+                if temp_n in detail_url.upper():
                     return True, n, title, detail_url
+                # if temp_n in temp_title:
+                #     return True, n, title, detail_url
     return False, '', '', ''
 
 
@@ -193,8 +196,7 @@ if __name__ == '__main__':
     # print(main('DW-006.AV帝王作品.Roxie出演.地方妈妈的性解放.双穴双屌', file_path='DW-006.AV帝王作品.Roxie出演.地方妈妈的性解放.双穴双屌'))
     # print(main('MDJ001-EP3.陈美惠.淫兽寄宿家庭.我和日本父子淫乱的一天.2021麻豆最强跨国合作', file_path='MDJ001-EP3.陈美惠.淫兽寄宿家庭.我和日本父子淫乱的一天.2021麻豆最强跨国合作'))
     # print(main('MKY-TN-003.周宁.乱伦黑料流出.最喜欢爸爸的鸡巴了.麻豆传媒MKY系列', file_path='MKY-TN-003.周宁.乱伦黑料流出.最喜欢爸爸的鸡巴了.麻豆传媒MKY系列'))
-    print(main('XSJ138.养子的秘密教学EP6.薇安姐内射教学.性视界出品',
-               file_path='XSJ138.养子的秘密教学EP6.薇安姐内射教学.性视界出品'))
+    # print(main('XSJ138.养子的秘密教学EP6.薇安姐内射教学.性视界出品', file_path='XSJ138.养子的秘密教学EP6.薇安姐内射教学.性视界出品'))
     # print(main('MAN麻豆女性向系列.MAN-0011.岚湘庭.当男人恋爱时.我可以带你去流浪.也知道下场不怎么样', file_path='MAN麻豆女性向系列.MAN-0011.岚湘庭.当男人恋爱时.我可以带你去流浪.也知道下场不怎么样'))
     # print(main('MDL-0009-2.楚梦舒.苏语棠.致八零年代的我们.年少的性欲和冲动.麻豆传媒映画原创中文收藏版', file_path='MDL-0009-2.楚梦舒.苏语棠.致八零年代的我们.年少的性欲和冲动.麻豆传媒映画原创中文收藏版'))
     # print(main('MSD-023', file_path='MSD023.袁子仪.杨柳.可爱女孩非亲妹.渴望已久的(非)近亲性爱.麻豆传媒映画.Model.Seeding系列.mp4'))
@@ -252,4 +254,4 @@ if __name__ == '__main__':
     # print(main('女王的SM调教'))
     # print(main('91CM202'))
     # print(main('91CM-202'))
-    print(main('DX04', file_path='P:\\10国产合集\\02原创归档\DX\\DX04.TS'))
+    print(main('JD013', file_path=r'P:\01麻豆传媒\02原创伙伴\JD 精东影业\JD013.TS'))
