@@ -254,4 +254,5 @@ if __name__ == '__main__':
     # print(main('女王的SM调教'))
     # print(main('91CM202'))
     # print(main('91CM-202'))
-    print(main('JD013', file_path=r'P:\01麻豆传媒\02原创伙伴\JD 精东影业\JD013.TS'))
+    # print(main('JD013', file_path=r'P:\01麻豆传媒\02原创伙伴\JD 精东影业\JD013.TS'))
+    print(main('mdx0010'))
