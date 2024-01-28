@@ -26,7 +26,8 @@ def get_actor_photo(actor):
 
 
 def get_detail_info(html, number):
-    detail_info = html.xpath('//div[@class="entry-content u-text-format u-clearfix"]//p//text()')
+    detail_info = html.xpath('//meta[@name="description"]/@content')[0].split(' ')
+    # detail_info = html.xpath('//div[@class="entry-content u-text-format u-clearfix"]//p//text()')
     # detail_info = html.xpath('//div[@class="entry-content u-text-format u-clearfix"]//text()')
     title_h1 = html.xpath('//div[@class="cao_entry_header"]/header/h1/text()')
     title = title_h1[0].replace(number, '').strip() if title_h1 else number
@@ -36,18 +37,25 @@ def get_detail_info(html, number):
         if '番號' in t:
             temp_number = re.findall(r'番號\s*：\s*(.+)\s*', t)
             number = temp_number[0] if temp_number else ''
+        if '番号' in t:
+            temp_number = re.findall(r'番号\s*：\s*(.+)\s*', t)
+            number = temp_number[0] if temp_number else ''
         if '片名' in t:
             temp_title = re.findall(r'片名\s*：\s*(.+)\s*', t)
             title = temp_title[0] if temp_title else title.replace(number, '').strip()
+        if '女郎' in t:
+            temp_actor = re.findall(r'女郎\s*：\s*(.+)\s*', t)
+            actor = temp_actor[0].replace('、', ',') if temp_actor else ''
         if t.endswith('女郎') and i + 1 < len(detail_info) and detail_info[i + 1].startswith('：'):
             temp_actor = re.findall(r'：\s*(.+)\s*', detail_info[i + 1])
             actor = temp_actor[0].replace('、', ',') if temp_actor else ''
+    # number = re.sub(r'([a-zA-Z])([0-9])', r"\1-\2", number)
     number = title if not number else number
 
     studio = html.xpath('string(//span[@class="meta-category"])').strip()
     cover_url = html.xpath('//div[@class="entry-content u-text-format u-clearfix"]/p/img/@src')
     cover_url = cover_url[0] if cover_url else ''
-    # print(number, title, actor, cover_url, studio, detail_info)
+    print(number, title, actor, cover_url, studio, detail_info)
     return number, title, actor, cover_url, studio
 
 
@@ -59,12 +67,15 @@ def get_real_url(html, number_list):
         if title and detail_url:
             for n in number_list:
                 temp_n = re.sub(r'[\W_]', '', n).upper()
-                temp_title = re.sub(r'[\W_]', '', title).upper()
-                # 改成判断下这个番号在不在这个URL里
+                # 判断下这个番号在不在这个URL里
                 if temp_n in detail_url.upper():
                     return True, n, title, detail_url
-                # if temp_n in temp_title:
-                #     return True, n, title, detail_url
+            # 先从URL找、没找到再从标题中找
+            for n in number_list:
+                temp_n = re.sub(r'[\W_]', '', n).upper()
+                temp_title = re.sub(r'[\W_]', '', title).upper()
+                if temp_n in temp_title:
+                    return True, n, title, detail_url
     return False, '', '', ''
 
 
@@ -255,4 +266,5 @@ if __name__ == '__main__':
     # print(main('91CM202'))
     # print(main('91CM-202'))
     # print(main('JD013', file_path=r'P:\01麻豆传媒\02原创伙伴\JD 精东影业\JD013.TS'))
-    print(main('mdx0010'))
+    # print(main('mdx0010'))
+    print(main('FSOG-101'))

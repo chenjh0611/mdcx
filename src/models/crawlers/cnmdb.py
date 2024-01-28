@@ -300,4 +300,5 @@ if __name__ == '__main__':
     # print(main('女王的SM调教'))
     # print(main('91CM202'))
     # print(main('91CM-202'))
-    print(main('DX04', file_path=r'P:\10国产合集\02原创归档\DX\DX04.TS'))
+    print(main('MDX-0002'))
+    # print(main('DX04', file_path=r'P:\10国产合集\02原创归档\DX\DX04.TS'))
