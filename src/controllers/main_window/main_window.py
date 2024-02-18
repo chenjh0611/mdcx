@@ -543,8 +543,8 @@ class MyMAinWindow(QMainWindow):
         if feedback or download_link:
             self.main_logs_show.emit(f'{feedback}{download_link}')
         signal.show_log_text('================================================================================')
-        self.pushButton_check_javdb_cookie_clicked()  # 检测javdb cookie
-        self.pushButton_check_javbus_cookie_clicked()  # 检测javbus cookie
+        # self.pushButton_check_javdb_cookie_clicked()  # 检测javdb cookie
+        # self.pushButton_check_javbus_cookie_clicked()  # 检测javbus cookie
         if config.use_database:
             ActressDB.init_db()
         try:
@@ -2057,11 +2057,10 @@ class MyMAinWindow(QMainWindow):
                         'avsox': [get_avsox_domain(), ''],
                         'xcity': ['https://xcity.jp', ''],
                         '7mmtv': ['https://7mmtv.tv', ''],
+                        'hdouban': ['https://ormtgu.com', ''],
                         'mdtv': ['https://www.mdpjzip.xyz', ''],
                         'madouqu': ['https://madouqu.com', ''],
                         'cnmdb': ['https://cnmdb.net', ''],
-                        'hscangku': ['https://hscangku.net', ''],
-                        'cableav': ['https://cableav.tv', ''],
                         'lulubar': ['https://lulubar.co', ''],
                         'love6': ['https://love6.tv', ''],
                         'yesjav': ['http://www.yesjav.info', ''],

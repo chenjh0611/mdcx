@@ -191,11 +191,11 @@ def get_real_url(html, number, number2, file_path):
                     if cid[-2:] in file_path:
                         number = cid
     if not temp_list:  # 通过标题搜索
-        title_list = html.xpath("//p[@class='txt']/a//text()")
+        title_list = html.xpath("//p[@class='tmb']/a/span[@class='txt']/text()")
         if title_list and url_list:
             full_title = number
             for i in range(len(url_list)):
-                temp_title = title_list[i].replace('...', '').strip()
+                temp_title = title_list[i].replace('...', '')
                 if temp_title in full_title:
                     temp_url = url_list[i]
                     temp_list.append(temp_url)
@@ -224,13 +224,11 @@ def get_real_url(html, number, number2, file_path):
         else:
             other_list.append(i)
     dvd_list.sort(reverse=True)
-    # 丢弃 tv_list, 因为获取其信息调用的后续 api 无法访问
-    new_url_list = digital_list + dvd_list + prime_list + monthly_list + other_list
+    new_url_list = tv_list + digital_list + dvd_list + prime_list + monthly_list + other_list
     real_url = new_url_list[0] if new_url_list else ''
     return real_url, number
 
 
-# invalid API
 def get_tv_jp_data(real_url):
     cid = re.findall(r'content=([^&/]+)', real_url)[0]
     headers = {
@@ -656,7 +654,7 @@ if __name__ == '__main__':
     # print(main('ssni00888'))
     # print(main('ssni-288'))
     # print(main('', 'https://www.dmm.co.jp/digital/videoa/-/detail/=/cid=ssni00288/'))
-    print(main('俺をイジメてた地元ヤンキーの巨乳彼女を寝とって復讐を果たす話 The Motion Anime'))  # 模糊匹配 MAXVR-008
+    print(main('PMAXVR-008'))  # 模糊匹配 MAXVR-008
     # print(main('', 'https://www.dmm.co.jp/mono/dvd/-/detail/=/cid=h_173dhry23/'))   # 地域限制
     # print(main('ssni00288'))
     # print(main('ssni00999'))
