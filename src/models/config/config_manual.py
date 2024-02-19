@@ -1,6 +1,6 @@
 class ManualConfig:
     # 设置软件版本
-    local_version = 120240127
+    local_version = 120240207
 
     # 定义配置值类型
     INT_KEY = [
@@ -56,7 +56,6 @@ class ManualConfig:
         'freejavbt',
         'getchu',
         'giga',
-        'hdouban',
         'iqqtv',
         'jav321',
         'javbus',
@@ -67,6 +66,8 @@ class ManualConfig:
         'lulubar',
         'madouqu',
         'mdtv',
+        'hscangku',
+        'cableav',
         'mgstage',
         'mywife',
         'prestige',
@@ -513,6 +514,8 @@ class ManualConfig:
         'mdtv': 'mdtv',
         'mdpjzip': 'mdtv',
         'madouqu': 'madouqu',
+        'hsck': 'hscangku',
+        'cableav': 'cableav',
         'mgstage': 'mgstage',
         '7mmtv': '7mmtv',
         'bb9711': '7mmtv',

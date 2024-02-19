@@ -11,7 +11,7 @@ from models.config.config import config
 from models.core.flags import Flags
 from models.crawlers import airav_cc_new, airav_new, avsex, avsox, cnmdb, dahlia, dmm, faleno, fantastica, fc2, fc2club, \
     fc2hub, freejavbt, getchu, getchu_dmm, giga, hdouban, iqqtv_new, jav321, javbus, javdb, javlibrary_new, kin8, love6, \
-    lulubar, madouqu, mdtv, mgstage, mmtv, mywife, official, prestige, theporndb, xcity
+    lulubar, madouqu, mdtv, mgstage, mmtv, mywife, official, prestige, theporndb, xcity, hscangku, cableav
 from models.entity.enums import FileMode
 
 
@@ -124,7 +124,7 @@ def _call_crawler(json_data, website, language, file_number, short_number, mosai
     elif website == 'mgstage':
         json_data = json.loads(mgstage.main(file_number, appoint_url, log_info, req_web, language, short_number))
     elif website == '7mmtv':
-        json_data = json.loads(mmtv.main(file_number, appoint_url, log_info, req_web, language))
+        json_data = json.loads(mmtv.main(file_number, appoint_url, log_info, req_web, language, file_path))
     elif website == 'fc2':
         json_data = json.loads(fc2.main(file_number, appoint_url, log_info, req_web, language))
     elif website == 'fc2hub':
@@ -137,6 +137,12 @@ def _call_crawler(json_data, website, language, file_number, short_number, mosai
     elif website == 'madouqu':
         json_data = json.loads(
             madouqu.main(file_number, appoint_url, log_info, req_web, language, file_path, appoint_number))
+    elif website == 'hscangku':
+        json_data = json.loads(
+            hscangku.main(file_number, appoint_url, log_info, req_web, language, file_path, appoint_number))
+    elif website == 'cableav':
+        json_data = json.loads(
+            cableav.main(file_number, appoint_url, log_info, req_web, language, file_path, appoint_number)) 
     elif website == 'getchu':
         json_data = json.loads(getchu.main(file_number, appoint_url, log_info, req_web, language))
     elif website == 'getchu_dmm':
@@ -490,7 +496,7 @@ def _deal_each_field(all_json_data, json_data, website_list, field_name, field_c
 
 
 def _call_crawlers(all_json_data, json_data, website_list, field_name, field_cnname, field_language, config,
-                    file_number, short_number, mosaic): # 4
+                   file_number, short_number, mosaic):  # 4
     """
     按照设置的网站顺序获取各个字段信息
     """
@@ -852,10 +858,12 @@ def _deal_json_data(json_data):
 
     # 标签
     tag = str(json_data['tag']).strip(" [ ]").replace("'", '').replace(', ', ',')  # 列表转字符串（避免个别网站刮削返回的是列表）
-    tag = re.sub(r',\d+[kKpP]', '', tag)
+    tag = re.sub(r',\d+[kKpP],', ',', tag)
     tag_rep_word = [',HD高画质', ',HD高畫質', ',高画质', ',高畫質']
     for each in tag_rep_word:
-        tag = tag.replace(each, '')
+        if tag.endswith(each):
+            tag = tag.replace(each, '')
+        tag = tag.replace(each + ",", ',')
     json_data['tag'] = tag
 
     # poster图
