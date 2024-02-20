@@ -374,7 +374,7 @@ if __name__ == '__main__':
     # print(main('', file_path='WTB-075 酒店妹包养软饭男 为了让他振作只好以身相许 乌托邦.ts'))    # 标题里有\t
     # print(main('', file_path='杏吧八戒1 - 3000约操18岁大一新生，苗条身材白嫩紧致.ts'))  # 分词匹配，带标点或者整个标题去匹配
     # print(main('', file_path='萝莉社 女大学生找模特兼职 被要求裸露拍摄 被套路内射.ts'))  # 分词匹配，带标点或者整个标题去匹配
-    # print(main('', file_path='/sp/sp6/国产测试/RS-023 AV1.mp4'))
+    print(main('', file_path='/sp/sp6/国产测试/RS-023 AV1.mp4'))
     # print(main('MDM-002')) # 去掉标题最后的发行商
     # print(main('MDS-0007')) # 数字要四位才能搜索到，即 MDS-0007 MDJ001 EP1 我的女优物语陈美惠.TS
     # print(main('MDS-007', file_path='MDJ001 EP1 我的女优物语陈美惠.TS')) # 数字要四位才能搜索到，即 MDJ-0001.EP1
@@ -382,7 +382,7 @@ if __name__ == '__main__':
     # print(main('台湾SWAG chloebabe 剩蛋特辑 干爆小鹿'))   # 带空格才能搜到
     # print(main('淫欲游戏王EP2'))  # 不带空格才能搜到
     # print(main('台湾SWAG-chloebabe-剩蛋特輯-幹爆小鹿'))
-    print(main('MD-0020'))
+    # print(main('MD-0020'))
     # print(main('mds009'))
     # print(main('女王的SM调教'))
     # print(main('91CM202'))
