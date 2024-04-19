@@ -10,8 +10,8 @@ class GeneratedConfig:
     Also used as default configuration
     """
     # modified_time
-    modified_time = r'2024-02-20 19:09:43'
-    version = 120240220
+    modified_time = r'2024-03-21 00:21:00'
+    version = 120240321
 
     # media
     media_path = r''
@@ -22,6 +22,7 @@ class GeneratedConfig:
     media_type = r'.mp4|.avi|.rmvb|.wmv|.mov|.mkv|.flv|.ts|.webm|.iso|.mpg'
     sub_type = r'.smi|.srt|.idx|.sub|.sup|.psb|.ssa|.ass|.usf|.xss|.ssf|.rt|.lrc|.sbv|.vtt|.ttml'
     scrape_softlink_path = r''
+    auto_link = 0
 
     # escape
     folders = r'JAV_output,examples'
@@ -138,7 +139,7 @@ class GeneratedConfig:
     nfo_tag_publisher = r'发行: publisher'
 
     # Name_Rule
-    folder_name = r'number title-actor'
+    folder_name = r'actor/number actor'
     naming_file = r'number'
     naming_media = r'number title'
     prevent_char = r''
@@ -175,14 +176,15 @@ class GeneratedConfig:
 
     # emby
     server_type = r'emby'
-    emby_url = r'http://192.168.2.124:8098'
-    api_key = r'6bc313e6f43447d38aa0ff6d3c9454db'
+    emby_url = r'http://192.168.5.191:8096'
+    api_key = r'ee9a2f2419704257b1dd60b975f2d64e'
     user_id = r''
     emby_on = r'actor_info_zh_cn,actor_info_miss,actor_photo_net,actor_photo_miss,'
     use_database = 0
     info_database_path = r''
     gfriends_github = r'https://github.com/gfriends/gfriends'
     actor_photo_folder = r''
+    actor_photo_kodi_auto = 0
 
     # mark
     poster_mark = 1
@@ -198,8 +200,8 @@ class GeneratedConfig:
     mark_pos_hd = r'bottom_right'
 
     # proxy
-    type = r'http'
-    proxy = r'127.0.0.1:10809'
+    type = r'no'
+    proxy = r'127.0.0.1:7890'
     timeout = 10
     retry = 3
     theporndb_api_token = r''
@@ -238,6 +240,7 @@ extrafanart_folder = {extrafanart_folder}
 media_type = {media_type}
 sub_type = {sub_type}
 scrape_softlink_path = {scrape_softlink_path}
+auto_link = {auto_link}
 
 [escape]
 folders = {folders}
@@ -400,6 +403,7 @@ use_database = {use_database}
 info_database_path = {info_database_path}
 gfriends_github = {gfriends_github}
 actor_photo_folder = {actor_photo_folder}
+actor_photo_kodi_auto = {actor_photo_kodi_auto}
 
 [mark]
 poster_mark = {poster_mark}

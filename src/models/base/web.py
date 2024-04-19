@@ -49,7 +49,7 @@ class WebRequests:
         #     browser={'browser': 'firefox', 'platform': 'windows', 'mobile': False})  # returns a CloudScraper instance
         self.lock = Lock()
         self.pool = ThreadPoolExecutor(32)
-        self.curl_session = curl_cffi.requests.Session()
+        self.curl_session = curl_cffi.requests.Session(max_redirects=10)
 
     def get_html(self, url: str, headers=None, cookies=None, proxies=True, allow_redirects=True, json_data=False,
                  content=False,
@@ -698,7 +698,7 @@ def check_theporndb_api_token():
     proxies = config.proxies
     timeout = config.timeout
     api_token = config.theporndb_api_token
-    url = 'https://api.metadataapi.net/scenes/hash/8679fcbdd29fa735'
+    url = 'https://api.theporndb.net/scenes/hash/8679fcbdd29fa735'
     headers = {
         'Authorization': f'Bearer {api_token}',
         'Content-Type': 'application/json',

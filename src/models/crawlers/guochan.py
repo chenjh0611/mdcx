@@ -257,15 +257,6 @@ def get_number_list(number, appoint_number='', file_path=''):  # 处理国产番
                     number_has_nothing_4 = '%s0%s' % (result[1], result[2])
                     number_has_space_4 = '%s 0%s' % (result[1], result[2])
                     number_list.extend([number_normal_4, number_has_nothing_4, number_has_space_4])
-        # 特殊处理文件、当没有找到番号时会使用文件名称去查、文件名又带有路径
-        # 示例DX04.TS
-        elif re.search(r'([A-Z]{2,})-?(\d{2,})', file_name):
-            result = re.search(r'([A-Z]{2,})-?(\d{2,})', file_name)
-            if result:
-                number_normal = '%s-%s' % (result[1], result[2])
-                number_has_nothing = '%s%s' % (result[1], result[2])
-                number_has_space = '%s %s' % (result[1], result[2])
-                number_list.extend([number_normal, number_has_nothing, number_has_space])
         if len(number_list):
             break
     # 番号识别将纯数字和字母放在最前面（将长度最短的放前面即可），刮削网站一般也只取 number_list 第一项进行搜索，其他用于搜索结果页比对
@@ -440,4 +431,3 @@ if __name__ == '__main__':
     # get_number_list('女王的SM调教')
     # get_number_list('91CM202')
     # get_number_list('91CM-202')
-    print(get_number_list('DX004', file_path=''))
